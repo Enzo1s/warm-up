@@ -15,6 +15,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { PostComponent } from './components/post/post.component';
 import { AlbumComponent } from './components/album/album.component';
 import { ToDoComponent } from './components/to-do/to-do.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ToDoComponent } from './components/to-do/to-do.component';
     RegisterComponent,
     PostComponent,
     AlbumComponent,
-    ToDoComponent
+    ToDoComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

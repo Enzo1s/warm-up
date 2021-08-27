@@ -11,16 +11,16 @@
                 <a class="nav-link active" routerLink="/profile">Profile</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/post">Posts</a>
+                <a class="nav-link" routerLink="/profile/posts">Posts</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/albums">Albums</a>
+                <a class="nav-link" routerLink="/profile/albums">Albums</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/users">Users</a>
+                <a class="nav-link" routerLink="/profile/users">Users</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/">TODOs</a>
+                <a class="nav-link" routerLink="/profile/TO-DOs">TODOs</a>
               </li>
             </ul>
             <a *ngIf="isLogged" class="btn btn-dark bg-opacity-75" type="submit" (click)="logOut()">LogOut</a>
