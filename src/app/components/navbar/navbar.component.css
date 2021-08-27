@@ -1,0 +1,29 @@
+.text-color {
+    font-size: 25px;
+    transition: 0.4s;
+}
+.text-color:hover {
+    font-size: 30px;
+}
+
+a {
+    
+    transition: 0.4s;
+}
+
+a:hover {
+    font-size: 20px;
+    color: white;
+}
+
+a:visited {
+    font-size: 20px;
+    color: white;
+}
+
+.nav-link {
+    display: block;
+    padding: .5rem 1 rem;
+    color: white;
+    text-decoration: none;
+}
