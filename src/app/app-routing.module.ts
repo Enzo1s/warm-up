@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AlbumComponent } from './components/album/album.component';
+import { CommentsComponent } from './components/comments/comments.component';
 import { HomeComponent } from './components/home/home.component';
 import { PostComponent } from './components/post/post.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'profile/posts', component: PostComponent },
+  { path: 'profile/posts/:id/comments', component: CommentsComponent},
   { path: 'profile/users', component: UserComponent },
   { path: 'profile/albums', component: AlbumComponent },
   { path: 'profile/TO-DOs', component: ToDoComponent },

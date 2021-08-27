@@ -1,1 +1,24 @@
-<p>comments works!</p>
+<div class="container">
+        <div class="card bg-card">
+          <div class="card-header">{{post.title}}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{user.name}} (user Id: {{post.userId}})</h5>
+            <div class="card border-primary mb-3">
+              <div class="card-body text-primary">
+                <p class="card-text">{{post.body}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    <div class="card text-dark m-3"  *ngFor="let comment of comments">
+        <div class="card-header">
+            <h5 class="card-title">Name: {{comment.name}}</h5>
+        </div>
+        <div class="card-body">
+            
+            <h6 class="card-subtitle mb-2 text-muted">Email:{{comment.email}}</h6>
+            <p class="card-text">Comment: <br>{{comment.body}}</p>
+        </div>
+    </div>
+</div>

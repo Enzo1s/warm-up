@@ -32,8 +32,8 @@
       <div class="card-body">
         <h5 class="card-title">{{post.title}}</h5>
         <p class="card-text">{{post.body}}</p>
-        <a routerLink="/users/{post.userId}" class="btn btn-primary">User Details</a>
-        <a routerLink="/posts/comments" class="btn btn-primary">comments</a>
+        <a routerLink="/users/{{post.userId}}" class="btn btn-primary">User Details</a>
+        <a routerLink="/profile/posts/{{post.id}}/comments" class="btn btn-primary">comments</a>
       </div>
     </div>
   </div>
