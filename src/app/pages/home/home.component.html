@@ -1,0 +1,25 @@
+<div class="home">
+    <div class="container d-flex justify-content-center" *ngIf="!form; else incomplete">
+        <div class="card bg-primary bg-opacity-50" *ngIf="!isLogged; else logged">
+            <div class="card-header">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item"><button (click)="onClick('login')" class="nav-link text-white">Log In</button></li>
+                    <li class="nav-item"><button (click)="onClick('register')" class="nav-link text-white" >Create Account</button></li>
+                </ul>
+            </div>
+            <app-login *ngIf="singIn" (logged)="redirect($event)"></app-login>
+            <app-register *ngIf="!singIn" (register)="registered($event)"></app-register>
+        </div>
+        <ng-template #logged class="text-white">
+            <div *ngIf="user != null">
+                <h2>Welcome {{user.name}}</h2>
+            </div>
+        </ng-template>
+    </div>
+    <ng-template #incomplete>
+        <p class="fs-2">Complete your profile</p>
+        <div class="container ">
+        <app-form-user ></app-form-user>
+    </div>
+    </ng-template>
+</div>

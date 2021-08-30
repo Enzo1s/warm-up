@@ -10,17 +10,35 @@ import { User } from '../models/User';
 export class UsersService {
 
   baseUrl = environment.baseURL;
-  constructor(private http:HttpClient) { }
+  constructor(private httpClient:HttpClient) { }
 
-  public getUsers() {
+  public saveUsers() {
     var users: User[]
-    this.http.get<User[]>(`${this.baseUrl}/users`).subscribe((res) => {
+    this.httpClient.get<User[]>(`${this.baseUrl}/users`).subscribe((res) => {
       users = res;
       users.forEach((user) => localStorage.setItem(`${user.id}`,JSON.stringify(user)))
     })
   }
 
+  public getUsers(): Observable<User[]> {
+    return this.httpClient.get<User[]>(`${this.baseUrl}/users`);
+  }
+
   public getUserById(id: number): Observable<User> {
-    return this.http.get<User>(`${this.baseUrl}/users/${id}`)
+    return this.httpClient.get<User>(`${this.baseUrl}/users/${id}`)
+  }
+
+  public getUserByUsername(username: string): User{
+    var user = new User();
+    for (let index = 0; index <= localStorage.length; index++) {
+      var userAux = localStorage.getItem(`${index}`)
+      if(userAux != null) {
+        user = userAux.indexOf(`"${username}"`) > 0 ? JSON.parse(userAux) : null;
+        if(user != null) {
+          return user
+        }
+      }
+    }
+    return user
   }
 }

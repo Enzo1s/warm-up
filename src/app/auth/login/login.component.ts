@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/User';
+import { UserLogin } from 'src/app/models/UserLogin';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 
@@ -12,32 +12,37 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
 
   isLogged= false;
-  errMsj= "esto es un error de login"
-  user = {
-    username: "",
-    email: ""
-  };
-  constructor(private authService:AuthService, private router:Router) { }
+  userLogin = new UserLogin();
+  @Output() logged: EventEmitter<boolean>;
+  constructor(private authService:AuthService, private router:Router) {
+    this.logged = new EventEmitter();    
+   }
 
   ngOnInit(): void {
   }
 
+  addNewItem(value: string) {
+    var session = sessionStorage.getItem('isLogged')
+    this.logged.emit(session ? Boolean(session):false);
+  }
+
   onLogin() {
-    if(this.authService.login(this.user)) {
+    if(this.authService.login(this.userLogin)) {
       this.isLogged = true;
       Swal.fire({
         icon: 'success',
         title: 'Welcome',
         text: 'logged',
       })
-      window.location.assign('/profile')
       /* this.router.navigate(['/profile']) */
+      this.logged.emit(true)
     } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'user or password incorrect',
       })
+      this.logged.emit(false)
     }
   }
 }

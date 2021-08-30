@@ -1,0 +1,71 @@
+<div class="card-body">
+    <form #f="ngForm" (ngSubmit)="onSave()" novalidate>
+        <div class="row">
+            <div class="col-5">
+
+                <p class="fs-3"> User</p>
+                <div class="form-group">
+                    <label for="name"> Name</label>
+                    <input type="text" name="name" id="name" class="form-control" [(ngModel)]="user.name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"> Email</label>
+                    <input type="text" name="email" id="email" class="form-control" [(ngModel)]="user.email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone"> Phone</label>
+                    <input type="text" name="phone" id="phone" class="form-control" [(ngModel)]="user.phone">
+                </div>
+                <div class="form-group">
+                    <label for="website"> Website</label>
+                    <input type="text" name="website" id="website" class="form-control" [(ngModel)]="user.website">
+                </div>
+            </div>
+            <div class="col-5">
+                <p class="fs-3"> Address</p>
+                <div class="form-group">
+                    <label for="street"> Street</label>
+                    <input type="text" name="street" id="street" class="form-control" [(ngModel)]="address.street"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="suite"> Suite</label>
+                    <input type="text" name="suite" id="suite" class="form-control" [(ngModel)]="address.suite">
+                </div>
+                <div class="form-group">
+                    <label for="city"> City</label>
+                    <input type="text" name="city" id="city" class="form-control" [(ngModel)]="address.city"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="zipcode"> Zipcode</label>
+                    <input type="text" name="zipcode" id="zipcode" class="form-control"
+                        [(ngModel)]="address.zipcode">
+                </div>
+            </div>
+            <div class="col-5 mt-2">
+                <p class="fs-3"> Company</p>
+                <div class="form-group">
+                    <label for="companyname"> Name company</label>
+                    <input type="text" name="companyname" id="companyname" class="form-control"
+                        [(ngModel)]="company.name" required>
+                </div>
+                <div class="form-group">
+                    <label for="companycatchPhrase">Company Catch Phrase</label>
+                    <input type="text" name="companycatchPhrase" id="companycatchPhrase" class="form-control"
+                        [(ngModel)]="company.catchPhrase">
+                </div>
+                <div class="form-group">
+                    <label for="companybs">Company BS</label>
+                    <input type="text" name="companybs" id="companybs" class="form-control"
+                        [(ngModel)]="company.bs">
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-dark btn-block mt-3" [disabled]="!f.valid">
+                        <i class="fas fa-sign-in-alt"></i> Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

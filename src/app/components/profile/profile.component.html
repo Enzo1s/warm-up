@@ -1,6 +1,9 @@
 <div class="container  text-dark">
   <div class="card bg-card">
-    <div class="card-header">{{user.name}}</div>
+    <div class="card-header d-flex justify-content-between">
+      <p class="fs-3 text-white">{{user.name}}</p>
+
+    </div>
     <div class="card-body">
       <h5 class="card-title">{{user.website}}</h5>
       <hr>
@@ -13,4 +16,27 @@
       </div>
     </div>
   </div>
+  <div class="mt-2">
+    <button class="btn btn-outline-light me-2 mb-2" (click)="onClick('posts')" value="post">My Posts</button>
+    <button class="btn btn-outline-light me-2 mb-2" (click)="onClick('albums')" value="album">My Albums</button>
+    <button class="btn btn-outline-light me-2 mb-2" (click)="onClick('todos')" value="todos">My TO-DOs</button>
+    <div *ngIf="view === 'posts'">
+      <div class="card-body form-group bg-light mb-4">
+        <form #f="ngForm" (ngSubmit)="createPost(f)">
+          <div class="card-header"><input class="form-control" type="text" name="title" placeholder="title"
+              [(ngModel)]="newPost.title"></div>
+          <div class="card-body text-primary">
+            <textarea name="body" id="body" cols="100" rows="3" [(ngModel)]="newPost.body"></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-dark btn-block mt-1" [disabled]="!f.valid" type="submit">
+              <i class="fas fa-sign-in-alt"></i> Save</button>
+          </div>
+        </form>
+      </div>
+      <app-my-post *ngFor="let post of posts" [postAux]="post"></app-my-post>
+    </div>
+
+  </div>
+
 </div>

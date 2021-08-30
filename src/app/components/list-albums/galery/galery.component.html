@@ -1,0 +1,10 @@
+
+    <div class="card mb-3" style="width: 16rem; height: 25rem;">
+        <img src="{{photo.thumbnailUrl}}" class="card-img-top" alt="{{photo.title}}"
+            (click)="fullPhoto()" *ngIf="!viewPhoto">
+        <img src="{{photo.url}}" class="card-img-top"  alt="{{photo.title}}" (click)="fullPhoto()" *ngIf="viewPhoto">
+        <div class="card-body">
+            <h5 class="card-title fs-6 text-dark">{{photo.title}}</h5>
+            <div class="card-text "><button class="btn btn-outline-primary" (click)="deletePhoto()">Delete</button></div>
+        </div>
+    </div>

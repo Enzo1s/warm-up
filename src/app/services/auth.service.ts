@@ -11,20 +11,20 @@ export class AuthService {
   constructor() { }
 
   login(user: UserLogin): boolean {
-    for (let index = 0; index < localStorage.length; index++) {
-      var searchUser = localStorage.getItem(`${index}`);
+    
+      var searchUser = localStorage.getItem(`${user.username}`);
       if (searchUser) {
-        if (user.username == JSON.parse(searchUser).username && user.email == JSON.parse(searchUser).email) {
+        if (user.password == JSON.parse(searchUser).password) {
           sessionStorage.setItem('isLogged','true')
-          sessionStorage.setItem('user', searchUser);
+          sessionStorage.setItem('user', user.username);
           return true;
         }
       }
-    }
+    
     return false
   }
 
-  register(user: User): boolean {
+  register(user: UserLogin): boolean {
     localStorage.getItem(user.username);
     const userlocal = localStorage.getItem(user.username);
     if (userlocal) {
@@ -36,7 +36,7 @@ export class AuthService {
 
   logout(): boolean{
     sessionStorage.removeItem('user')
-    sessionStorage.setItem('isLogged','flase')
+    sessionStorage.setItem('isLogged','false')
     if(!sessionStorage.getItem('user')) {
       return true
     }

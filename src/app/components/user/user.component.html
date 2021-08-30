@@ -1,1 +1,7 @@
-<p>user works!</p>
+
+<div *ngFor="let user of users">
+    <a class=" btn list-group-item " (click)="collapseOne(user.id)" > {{user.name}}</a>
+    <div *ngIf="collapse === user.id" class="container">
+        <app-detail-user [user]="user"></app-detail-user>
+    </div>
+</div>

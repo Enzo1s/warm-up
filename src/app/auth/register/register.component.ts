@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/User';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserLogin } from 'src/app/models/UserLogin';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 
@@ -10,17 +11,22 @@ import Swal from 'sweetalert2';
 })
 export class RegisterComponent implements OnInit {
 
+  @Output() register: EventEmitter<boolean>;
   isLogged = false;
   
-  newUser = new User();
-  constructor(private authService: AuthService) { }
+  newUser = new UserLogin();
+  constructor(
+    private router: Router,
+    private authService: AuthService) { 
+      this.register = new EventEmitter()
+    }
 
   ngOnInit(): void {
-    this.isLogged = sessionStorage.getItem("isLogged") ? true: false;
+    var logged = sessionStorage.getItem('isLogged')
+    this.isLogged = logged == 'true' ? true: false;
   }
 
   onRegister(){
-    
     const register = this.authService.register(this.newUser);
     if(register) {
       Swal.fire({
@@ -28,12 +34,15 @@ export class RegisterComponent implements OnInit {
         title: 'Welcome',
         text: 'user created',
       })
+      this.authService.login(this.newUser)
+      this.register.emit(true)
      } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'user or email already exists',
       })
+      /* this.register.emit(false) */
      }
   }
 }

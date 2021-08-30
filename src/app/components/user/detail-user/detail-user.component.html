@@ -1,0 +1,19 @@
+<div class="container text-black ">
+    <div class="card ">
+        <div class="card-header">{{user.name}}</div>
+        <div class="card-body">
+            <h5 class="card-title">{{user.website}}</h5>
+            <hr>
+            <div class="card border-primary mb-3">
+                <div class="card-header">Company: {{user.company.name}}</div>
+                <div class="card-body text-primary">
+                    <h5 class="card-title">{{user.company.bs}}</h5>
+                    <p class="card-text">{{user.company.catchPhrase}}</p>
+                </div>
+            </div>
+            <a routerLink="/users/{{user.id}}/posts" class="btn btn-primary m-1">Posts</a>
+            <a routerLink="/profile/albums" class="btn btn-primary m-1">Albums</a>
+            <a routerLink="/profile/TO-DOs" class="btn btn-primary m-1">TO-DOs</a>
+        </div>
+    </div>
+</div>
