@@ -1,0 +1,7 @@
+<div class="card {{style}} mb-3" style="max-width: 18rem;">
+    <div class="card-header d-flex justify-content-between"> <p>User Id: {{todo.userId}}</p> <button class="btn btn-outline-dark ms-2" (click)="changeState()">Update State</button></div>
+    <div class="card-body">
+      <h5 class="card-title">Title: {{todo.title}}</h5>
+      <p class="card-text">State: {{todo.completed}}</p>
+    </div>
+  </div>

@@ -1,0 +1,15 @@
+<div class="card-body form-group bg-light mb-4">
+    <form #f="ngForm" (ngSubmit)="createPost(f)">
+      <div class="card-header"><input class="form-control" type="text" name="title" placeholder="title"
+          [(ngModel)]="newPost.title"></div>
+      <div class="card-body text-primary">
+        <div class="row">
+        <textarea name="body" id="body" cols="100" rows="3" [(ngModel)]="newPost.body"></textarea>
+      </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-dark btn-block mt-1" [disabled]="!f.valid" type="submit">
+          <i class="fas fa-sign-in-alt"></i> Save</button>
+      </div>
+    </form>
+  </div>

@@ -1,20 +1,28 @@
-<div class="row" *ngIf="!galery; else view">
-    <div *ngFor="let album of albums" class="col-3">
-        <div class="card border-dark mb-3" style="max-width: 18rem; height: 12rem;">
-            <div class="card-header text-dark d-flex justify-content-between">
-                <p class="">Album: {{album.id}} User: {{album.userId}}</p> <button class="btn btn-primary"
-                    (click)="galeryView(album.id)">Galery</button>
-            </div>
-            <div class="card-body text-dark">
-                <h5 class="card-title">{{album.title}}</h5>
+<div class="container" *ngIf="userV">
+    <app-detail-user [user]="user" [access]="'albums'" (return)="albumsView()"></app-detail-user>
+</div>
+<div *ngIf="!userV">
+
+
+    <div class="row" *ngIf="!galery; else view">
+        <div *ngFor="let album of albums" class="col-3">
+            <div class="card border-dark text-dark mb-3" style="max-width: 18rem; height: 16rem;">
+                <p class="ms-2 mt-2">Album: {{album.id}} User: {{album.userId}}</p>
+                <div class="card-header  d-flex justify-content-between">
+                    <button class="btn btn-primary me-1" (click)="galeryView(album.id)">Galery</button>
+                    <button class="btn btn-primary me-1" (click)="userView(album.userId)">user</button>
+                </div>
+                <div class="card-body text-dark">
+                    <h5 class="card-title">{{album.title}}</h5>
+                </div>
             </div>
         </div>
     </div>
+    <ng-template #view>
+        <div class="container">
+            <div class="row d-flex justify-content-between">
+                <app-galery *ngFor="let photo of photos" [photo]="photo" class="col-3"></app-galery>
+            </div>
+        </div>
+    </ng-template>
 </div>
-<ng-template #view>
-    <div class="container">
-        <div class="row d-flex justify-content-between">
-    <app-galery *ngFor="let photo of photos" [photo]="photo" class="col-3"></app-galery>
-</div>
-</div>
-</ng-template>

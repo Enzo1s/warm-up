@@ -14,6 +14,7 @@
             <a routerLink="/users/{{user.id}}/posts" class="btn btn-primary m-1">Posts</a>
             <a routerLink="/profile/albums" class="btn btn-primary m-1">Albums</a>
             <a routerLink="/profile/TO-DOs" class="btn btn-primary m-1">TO-DOs</a>
+            <button *ngIf="access === 'albums'" class="btn btn-primary m-1" (click)="onClick()">return</button>
         </div>
     </div>
 </div>

@@ -13,17 +13,20 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { UserComponent } from './components/user/user.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PostComponent } from './components/post/post.component';
-import { AlbumComponent } from './components/list-albums/album/album.component';
-import { ToDoComponent } from './components/to-do/to-do.component';
+import { ToDoComponent } from './components/list-to-do/to-do/to-do.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { DetailUserComponent } from './components/user/detail-user/detail-user.component';
 import { PostUserComponent } from './components/user/post-user/post-user.component';
 import { FormUserComponent } from './components/form-user/form-user.component';
 import { MyPostComponent } from './components/profile/my-post/my-post.component';
 import { MyAlbumComponent } from './components/profile/my-album/my-album.component';
-import { MyToDoComponent } from './components/profile/my-to-do/my-to-do.component';
 import { ListAlbumsComponent } from './components/list-albums/list-albums.component';
 import { GaleryComponent } from './components/list-albums/galery/galery.component';
+import { ListToDoComponent } from './components/list-to-do/list-to-do.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NewAlbumComponent } from './components/profile/new-album/new-album.component';
+import { NewPostComponent } from './components/profile/new-post/new-post.component';
+import { NewToDoComponent } from './components/profile/new-to-do/new-to-do.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,6 @@ import { GaleryComponent } from './components/list-albums/galery/galery.componen
     UserComponent,
     RegisterComponent,
     PostComponent,
-    AlbumComponent,
     ToDoComponent,
     CommentsComponent,
     DetailUserComponent,
@@ -43,9 +45,13 @@ import { GaleryComponent } from './components/list-albums/galery/galery.componen
     FormUserComponent,
     MyPostComponent,
     MyAlbumComponent,
-    MyToDoComponent,
     ListAlbumsComponent,
-    GaleryComponent
+    GaleryComponent,
+    ListToDoComponent,
+    FooterComponent,
+    NewAlbumComponent,
+    NewPostComponent,
+    NewToDoComponent
   ],
   imports: [
     BrowserModule,

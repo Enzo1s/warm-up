@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { User } from 'src/app/models/User';
 
 @Component({
@@ -9,10 +9,16 @@ import { User } from 'src/app/models/User';
 export class DetailUserComponent implements OnInit {
 
   @Input() user = new User();
-  constructor() { }
+  @Input() access = ""
+  @Output() return: EventEmitter<boolean>
+  constructor() {
+    this.return = new EventEmitter();
+   }
 
   ngOnInit(): void {
-    
   }
 
+  onClick() {
+    this.return.emit(true);
+  }
 }
